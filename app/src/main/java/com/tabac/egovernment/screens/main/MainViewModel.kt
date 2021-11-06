@@ -1,4 +1,6 @@
 package com.tabac.egovernment.screens.main
 
-class MainViewModel {
+import com.tabac.egovernment.BaseViewModel
+
+class MainViewModel: BaseViewModel() {
 }

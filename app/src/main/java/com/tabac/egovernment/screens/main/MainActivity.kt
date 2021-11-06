@@ -1,7 +1,6 @@
 package com.tabac.egovernment.screens.main
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -11,10 +10,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.tabac.egovernment.BaseActivity
 import com.tabac.egovernment.screens.LoginScreen
 import com.tabac.egovernment.ui.theme.EGovernmentTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,6 +26,8 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+
 }
 
 @Composable

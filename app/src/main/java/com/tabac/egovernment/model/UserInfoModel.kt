@@ -1,6 +1,6 @@
 package com.tabac.egovernment.model
 
-class UserInfo(
+class UserInfoModel(
     var userLoggedIn: Boolean = false,
     var userName: String = ""
 )

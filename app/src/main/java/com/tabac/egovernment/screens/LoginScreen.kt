@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.tabac.egovernment.R
-import com.tabac.egovernment.model.UserInfo
+import com.tabac.egovernment.model.UserInfoModel
 
 @Composable
-fun LoginScreen(onLoginClicked: () -> Unit, userInfo: UserInfo = UserInfo()) {
+fun LoginScreen(onLoginClicked: () -> Unit, userInfo: UserInfoModel = UserInfoModel()) {
     Surface(
         color = Color.White
     ) {

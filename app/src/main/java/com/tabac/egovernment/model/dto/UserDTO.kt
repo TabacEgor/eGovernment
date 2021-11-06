@@ -1,4 +1,4 @@
-package com.tabac.egovernment.model
+package com.tabac.egovernment.model.dto
 
 data class UserDTO(
     val login: String,

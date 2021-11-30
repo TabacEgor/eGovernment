@@ -1,0 +1,13 @@
+package com.tabac.egovernment.screens.main
+
+import androidx.annotation.StringRes
+import com.tabac.egovernment.R
+
+sealed class NavigationRoutes(val route: String, @StringRes val resourceId: Int) {
+    object Login : NavigationRoutes("Login", R.string.login)
+    object Home : NavigationRoutes("HomeScreen", R.string.home)
+    object Documents : NavigationRoutes("DocumentsScreen", R.string.documents)
+    object Votes : NavigationRoutes("VotesScreen", R.string.votes)
+    object GovServiceRegistration : NavigationRoutes("ServiceRegistrationScreen", R.string.service_registration)
+    object Settings: NavigationRoutes("SettingsScreen", R.string.settings)
+}

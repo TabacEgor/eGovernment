@@ -1,24 +1,22 @@
 package com.tabac.egovernment.screens.login.views
 
-import android.content.res.Resources
-import androidx.annotation.MainThread
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tabac.egovernment.R
 import com.tabac.egovernment.screens.login.models.LoginViewState
+import com.tabac.egovernment.ui.theme.Blue
 import com.tabac.egovernment.ui.theme.LightBlue
-import com.tabac.egovernment.ui.theme.Shapes
 
 @Composable
 fun LoginViewInitial(
@@ -27,14 +25,17 @@ fun LoginViewInitial(
     onLoginChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
     onLoginClick: () -> Unit,
-    onForgotPasswordClick: () -> Unit
+    onForgotPasswordClick: (Int) -> Unit
 ) {
     Surface(
-        color = Color.White
+        color = Color.White,
     ) {
-        Box {
+        Box() {
             LazyColumn(
-                Modifier.background(LightBlue),
+                modifier = Modifier
+                    .background(LightBlue)
+                    .fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
                 content = {
                     item {
                         Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
@@ -67,9 +68,14 @@ fun LoginViewInitial(
                                     .fillMaxWidth(),
                                 singleLine = true,
                                 value = state.password,
-                                onValueChange = onPasswordChanged
+                                onValueChange = onPasswordChanged,
+                                colors = TextFieldDefaults.textFieldColors(
+                                    textColor = Color.Black,
+                                    focusedIndicatorColor = Color.Black,
+                                    disabledIndicatorColor = Color.Black,
+                                    cursorColor = Color.Black
+                                )
                             )
-
                         }
                     }
 
@@ -79,29 +85,24 @@ fun LoginViewInitial(
                                 .padding(top = 24.dp, start = 16.dp, end = 16.dp)
                                 .height(48.dp)
                                 .fillMaxWidth(),
-                            onClick = onLoginClick
+                            onClick = onLoginClick,
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Blue)
                         ) {
-//                            if (state.isSending) {
-//                                CircularProgressIndicator(
-//                                    modifier = Modifier.size(20.dp),
-//                                    color = Color.White,
-//                                    strokeWidth = 2.dp
-//                                )
-//                            } else {
-//                                Text(
-//                                    text = stringResource(id = R.string.action_add),
-//                                    style = JetHabitTheme.typography.body,
-//                                    color = Color.White
-//                                )
-//                            }
+                            Text(
+                                text = stringResource(id = R.string.login),
+                                color = Color.Black
+                            )
                         }
                     }
 
-//                state.sendingError?.let { error ->
-//                    item {
-//                        ComposeViewInitialError(error = error)
-//                    }
-//                }
+                    item() {
+                        ClickableText(
+                            text = AnnotatedString(stringResource(id = R.string.forgot_password)),
+                            modifier = Modifier.fillMaxSize(),
+                            onClick = onForgotPasswordClick
+                        )
+
+                    }
                 })
         }
 

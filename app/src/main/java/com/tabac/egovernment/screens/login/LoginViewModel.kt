@@ -6,6 +6,7 @@ import com.tabac.egovernment.base.BaseViewModel
 import com.tabac.egovernment.base.EventHandler
 import com.tabac.egovernment.screens.login.models.LoginEvent
 import com.tabac.egovernment.screens.login.models.LoginViewState
+import com.tabac.egovernment.util.logd
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -26,19 +27,24 @@ class LoginViewModel @Inject constructor() : BaseViewModel(), EventHandler<Login
             is LoginEvent.LoginChanged -> _loginViewState.postValue(
                 currentState.copy(login = event.newValue)
             )
+            is LoginEvent.PasswordChanged -> _loginViewState.postValue(
+                currentState.copy(password = event.newValue)
+            )
+            is LoginEvent.LoginClick -> login(
+                login = currentState.login,
+                password = currentState.password
+            )
 
         }
     }
 
-    private fun login() {
-
+    private fun login(login: String, password: String) {
+        logd("onLoginClicked $login $password")
     }
 
     private fun signUp() {
-
     }
 
     private fun forgotPassword() {
-
     }
 }

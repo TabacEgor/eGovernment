@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.tabac.egovernment.screens.login.models.LoginEvent
 import com.tabac.egovernment.screens.login.models.LoginViewState
@@ -30,7 +31,7 @@ fun LoginScreen(
                    },
                 onLoginChanged = { loginViewModel.obtainEvent(LoginEvent.LoginChanged(it)) },
                 onPasswordChanged = { loginViewModel.obtainEvent(LoginEvent.PasswordChanged(it)) },
-                onForgotPasswordClick = { }
+                onForgotPasswordClick = { loginViewModel.obtainEvent(LoginEvent.ForgotPassword) }
         )
         is LoginViewState.Loading -> {  }
         is LoginViewState.LoginSuccess -> {  }

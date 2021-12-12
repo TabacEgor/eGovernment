@@ -1,4 +1,4 @@
-package com.tabac.egovernment
+package com.tabac.egovernment.base
 
 import androidx.activity.ComponentActivity
 

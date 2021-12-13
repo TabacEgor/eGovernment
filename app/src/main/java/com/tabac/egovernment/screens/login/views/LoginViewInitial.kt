@@ -11,11 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.tabac.egovernment.R
 import com.tabac.egovernment.screens.login.models.LoginViewState
 import com.tabac.egovernment.ui.theme.Blue
+import com.tabac.egovernment.ui.theme.EGovernmentTheme
 import com.tabac.egovernment.ui.theme.LightBlue
 
 @Composable
@@ -38,6 +43,18 @@ fun LoginViewInitial(
                 verticalArrangement = Arrangement.Center,
                 content = {
                     item {
+                        Column(
+                            modifier = Modifier.padding(top = 56.dp),
+                            verticalArrangement = Arrangement.Top,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "eGovernment MD",
+                                color = Color.Black,
+                                style = TextStyle(Color.Black, fontSize = 56.sp),
+                                textAlign = TextAlign.Center
+                            )
+                        }
                         Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
                             Text(
                                 text = stringResource(id = R.string.login),
@@ -61,7 +78,10 @@ fun LoginViewInitial(
                     }
 
                     item {
-                        Row(modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp)) {
+                        Column(modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp)) {
+                            Text(
+                                text = stringResource(id = R.string.password),
+                            )
                             TextField(
                                 modifier = Modifier
                                     .padding(top = 4.dp)
@@ -96,10 +116,10 @@ fun LoginViewInitial(
                     }
 
                     item() {
-                        ClickableText(
+                        Text(
                             text = AnnotatedString(stringResource(id = R.string.forgot_password)),
                             modifier = Modifier.fillMaxSize(),
-                            onClick = onForgotPasswordClick
+                            textAlign = TextAlign.Center
                         )
 
                     }

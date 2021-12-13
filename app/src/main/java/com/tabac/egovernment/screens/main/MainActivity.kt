@@ -48,17 +48,17 @@ class MainActivity : BaseActivity() {
                                 mainViewModel = mainViewModel
                             )
                         }
-                        navigation(startDestination = "home", route = NavigationRoutes.Home.route) {
-                            composable("home") {
-                                HomeScreen()
-                            }
-                            composable(NavigationRoutes.Votes.route) {
-                                VotesScreen()
-                            }
-                            composable(NavigationRoutes.Settings.route) {
-                                SettingsScreen()
-                            }
-                        }
+//                        navigation(startDestination = "home", route = NavigationRoutes.Home.route) {
+//                            composable("home") {
+//                                HomeScreen()
+//                            }
+//                            composable(NavigationRoutes.Votes.route) {
+//                                VotesScreen()
+//                            }
+//                            composable(NavigationRoutes.Settings.route) {
+//                                SettingsScreen()
+//                            }
+//                        }
                     }
                 }
             }

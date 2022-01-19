@@ -30,16 +30,13 @@ class LoginViewModel @Inject constructor() : BaseViewModel(), EventHandler<Login
             is LoginEvent.PasswordChanged -> _loginViewState.postValue(
                 currentState.copy(password = event.newValue)
             )
-            is LoginEvent.LoginClick -> login(
-                login = currentState.login,
-                password = currentState.password
-            )
-
+            is LoginEvent.LoginClick -> login(currentState)
         }
     }
 
-    private fun login(login: String, password: String) {
-        logd("onLoginClicked $login $password")
+    private fun login(state: LoginViewState.ViewStateInitial) {
+        logd("onLoginClicked ${state.login} ${state.password}")
+        _loginViewState.postValue(LoginViewState.LoginSuccess)
     }
 
     private fun signUp() {

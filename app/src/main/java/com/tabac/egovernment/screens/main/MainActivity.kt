@@ -2,21 +2,23 @@ package com.tabac.egovernment.screens.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.tabac.egovernment.base.BaseActivity
-import com.tabac.egovernment.screens.VotesScreen
-import com.tabac.egovernment.screens.home.HomeScreen
 import com.tabac.egovernment.screens.login.LoginScreen
 import com.tabac.egovernment.screens.login.LoginViewModel
-import com.tabac.egovernment.screens.settings.SettingsScreen
 import com.tabac.egovernment.ui.theme.EGovernmentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,36 +43,15 @@ class MainActivity : BaseActivity() {
                                 loginViewModel = loginViewModel
                             )
                         }
+
                         composable(NavigationRoutes.Main.route) {
                             val mainViewModel = hiltViewModel<MainViewModel>()
-                            MainScreen(
-                                navController = navController,
-                                mainViewModel = mainViewModel
-                            )
+                            MainScreen(navController = navController, mainViewModel = mainViewModel)
                         }
-//                        navigation(startDestination = "home", route = NavigationRoutes.Home.route) {
-//                            composable("home") {
-//                                HomeScreen()
-//                            }
-//                            composable(NavigationRoutes.Votes.route) {
-//                                VotesScreen()
-//                            }
-//                            composable(NavigationRoutes.Settings.route) {
-//                                SettingsScreen()
-//                            }
-//                        }
                     }
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true, widthDp = 320, heightDp = 480)
-@Composable
-fun DefaultPreview() {
-    EGovernmentTheme {
-//        LoginScreen()
     }
 }
 
@@ -80,3 +61,10 @@ fun DefaultPreview() {
 //    uiMode = UI_MODE_NIGHT_YES,
 //    name = "DefaultPreviewDark"
 //)
+@Preview(showBackground = true, widthDp = 320, heightDp = 480)
+@Composable
+fun MainScreenPreview() {
+    EGovernmentTheme {
+//        MainScreen()
+    }
+}

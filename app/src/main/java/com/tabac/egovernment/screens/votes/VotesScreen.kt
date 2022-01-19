@@ -1,4 +1,4 @@
-package com.tabac.egovernment.screens
+package com.tabac.egovernment.screens.votes
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring

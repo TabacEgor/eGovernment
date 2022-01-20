@@ -28,8 +28,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-
             EGovernmentTheme {
+
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     NavHost(
@@ -38,10 +38,7 @@ class MainActivity : BaseActivity() {
                     ) {
                         composable(NavigationRoutes.Login.route) {
                             val loginViewModel = hiltViewModel<LoginViewModel>()
-                            LoginScreen(
-                                navController = navController,
-                                loginViewModel = loginViewModel
-                            )
+                            LoginScreen(navController = navController, loginViewModel = loginViewModel)
                         }
 
                         composable(NavigationRoutes.Main.route) {

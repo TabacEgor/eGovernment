@@ -5,4 +5,6 @@ sealed class LoginViewState {
     object Loading : LoginViewState()
     object Error : LoginViewState()
     object LoginSuccess : LoginViewState()
+    object ForgotPassword : LoginViewState()
+    object SignUp : LoginViewState()
 }

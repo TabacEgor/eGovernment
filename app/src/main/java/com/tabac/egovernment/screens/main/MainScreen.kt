@@ -45,7 +45,6 @@ fun MainScreen(
                 navController = childNavController,
                 startDestination = NavigationRoutes.Home.route
             ) {
-                navigation(startDestination = NavigationRoutes.Home.route, route = "main") {
                     composable(NavigationRoutes.Home.route) {
                         HomeScreen()
                     }
@@ -58,7 +57,6 @@ fun MainScreen(
                     composable(NavigationRoutes.Settings.route) {
                         SettingsScreen()
                     }
-                }
             }
         }
 

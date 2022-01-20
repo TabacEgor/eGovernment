@@ -4,6 +4,6 @@ sealed class LoginEvent {
     data class LoginChanged(val newValue: String): LoginEvent()
     data class PasswordChanged(val newValue: String): LoginEvent()
     object LoginClick : LoginEvent()
-    object ForgotPassword : LoginEvent()
-    object SignUp : LoginEvent()
+    object ForgotPasswordClick : LoginEvent()
+    object SignUpClick : LoginEvent()
 }

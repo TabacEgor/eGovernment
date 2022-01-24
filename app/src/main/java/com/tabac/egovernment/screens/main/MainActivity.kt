@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.tabac.egovernment.base.BaseActivity
 import com.tabac.egovernment.screens.login.LoginScreen
 import com.tabac.egovernment.screens.login.LoginViewModel
+import com.tabac.egovernment.screens.splash.SplashScreen
 import com.tabac.egovernment.ui.theme.EGovernmentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,8 +35,12 @@ class MainActivity : BaseActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     NavHost(
                         navController = navController,
-                        startDestination = NavigationRoutes.Login.route
+                        startDestination = NavigationRoutes.Splash.route
                     ) {
+                        composable(NavigationRoutes.Splash.route) {
+                            SplashScreen(navController = navController)
+                        }
+
                         composable(NavigationRoutes.Login.route) {
                             val loginViewModel = hiltViewModel<LoginViewModel>()
                             LoginScreen(navController = navController, loginViewModel = loginViewModel)

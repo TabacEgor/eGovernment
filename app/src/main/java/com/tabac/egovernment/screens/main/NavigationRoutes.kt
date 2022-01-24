@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import com.tabac.egovernment.R
 
 sealed class NavigationRoutes(val route: String, @StringRes val resourceId: Int) {
+    object Splash : NavigationRoutes("SplashScreen", R.string.splash)
     object Login : NavigationRoutes("LoginScreen", R.string.login)
     object SignUp : NavigationRoutes("ServiceRegistrationScreen", R.string.service_registration)
     object Main : NavigationRoutes("MainScreen", R.string.main)

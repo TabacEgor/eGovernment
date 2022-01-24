@@ -1,6 +1,9 @@
 package com.tabac.egovernment.screens.main
 
 import androidx.annotation.StringRes
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.navigation.NavHostController
 import com.tabac.egovernment.R
 
 sealed class NavigationRoutes(val route: String, @StringRes val resourceId: Int) {
@@ -13,5 +16,20 @@ sealed class NavigationRoutes(val route: String, @StringRes val resourceId: Int)
     object Documents : NavigationRoutes("DocumentsScreen", R.string.documents)
     object Votes : NavigationRoutes("VotesScreen", R.string.votes)
     object Settings: NavigationRoutes("SettingsScreen", R.string.settings)
+}
+
+class NavigationActions(navController: NavHostController) {
 
 }
+
+//sealed class MainBottomNavigationRoutes(
+//    val route: String,
+//    @StringRes val resourceId: Int,
+//    val icon: ImageVector? = null,
+//    val body: @Composable ((String) -> Unit)? = null
+//) {
+//    object Home : MainBottomNavigationRoutes("HomeScreen", R.string.home)
+//    object Documents : MainBottomNavigationRoutes("DocumentsScreen", R.string.documents)
+//    object Votes : MainBottomNavigationRoutes("VotesScreen", R.string.votes)
+//    object Settings: MainBottomNavigationRoutes("SettingsScreen", R.string.settings)
+//}

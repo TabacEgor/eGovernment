@@ -3,6 +3,7 @@ package com.tabac.egovernment.screens.login
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.tabac.egovernment.screens.login.models.LoginEvent
 import com.tabac.egovernment.screens.login.models.LoginViewState
@@ -29,6 +30,13 @@ fun LoginScreen(
         is LoginViewState.Loading -> { LoginViewLoading() }
         is LoginViewState.LoginSuccess -> { LaunchedEffect(key1 = Unit, block = {
                 navController.navigate(route = NavigationRoutes.Main.route)
+//                {
+//                    popUpTo(navController.graph.findStartDestination().id) {
+//                        saveState = true
+//                    }
+//                    launchSingleTop = true
+//                    restoreState = true
+//                }
             })
         }
         is LoginViewState.Error -> { LoginViewError() }

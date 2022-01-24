@@ -27,93 +27,88 @@ fun LoginViewInitial(
     onLoginClick: () -> Unit,
     onForgotPasswordClick: (Int) -> Unit
 ) {
-    Surface(
-        color = Color.White,
-    ) {
-        Box() {
-            LazyColumn(
-                modifier = Modifier
-                    .background(LightBlue)
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                content = {
-                    item {
-                        Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
-                            Text(
-                                text = stringResource(id = R.string.login),
-                            )
+    LazyColumn(
+        modifier = Modifier
+            .background(LightBlue)
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        content = {
+            item {
+                Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
+                    Text(
+                        text = stringResource(id = R.string.login),
+                    )
 
-                            TextField(
-                                modifier = Modifier
-                                    .padding(top = 4.dp)
-                                    .fillMaxWidth(),
-                                singleLine = true,
-                                value = state.login,
-                                onValueChange = onLoginChanged,
-                                colors = TextFieldDefaults.textFieldColors(
-                                    textColor = Color.Black,
-                                    focusedIndicatorColor = Color.Black,
-                                    disabledIndicatorColor = Color.Black,
-                                    cursorColor = Color.Black
-                                )
-                            )
-                        }
-                    }
+                    TextField(
+                        modifier = Modifier
+                            .padding(top = 4.dp)
+                            .fillMaxWidth(),
+                        singleLine = true,
+                        value = state.login,
+                        onValueChange = onLoginChanged,
+                        colors = TextFieldDefaults.textFieldColors(
+                            textColor = Color.Black,
+                            focusedIndicatorColor = Color.Black,
+                            disabledIndicatorColor = Color.Black,
+                            cursorColor = Color.Black
+                        )
+                    )
+                }
+            }
 
-                    item {
-                        Column(modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp)) {
-                            Text(
-                                text = stringResource(id = R.string.password),
-                            )
+            item {
+                Column(modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp)) {
+                    Text(
+                        text = stringResource(id = R.string.password),
+                    )
 
-                            TextField(
-                                modifier = Modifier
-                                    .padding(top = 4.dp)
-                                    .fillMaxWidth(),
-                                singleLine = true,
-                                value = state.password,
-                                onValueChange = onPasswordChanged,
-                                colors = TextFieldDefaults.textFieldColors(
-                                    textColor = Color.Black,
-                                    focusedIndicatorColor = Color.Black,
-                                    disabledIndicatorColor = Color.Black,
-                                    cursorColor = Color.Black
-                                )
-                            )
-                        }
-                    }
+                    TextField(
+                        modifier = Modifier
+                            .padding(top = 4.dp)
+                            .fillMaxWidth(),
+                        singleLine = true,
+                        value = state.password,
+                        onValueChange = onPasswordChanged,
+                        colors = TextFieldDefaults.textFieldColors(
+                            textColor = Color.Black,
+                            focusedIndicatorColor = Color.Black,
+                            disabledIndicatorColor = Color.Black,
+                            cursorColor = Color.Black
+                        )
+                    )
+                }
+            }
 
-                    item {
-                        Button(
-                            modifier = Modifier
-                                .padding(top = 24.dp, start = 16.dp, end = 16.dp)
-                                .height(48.dp)
-                                .fillMaxWidth(),
-                            onClick = onLoginClick,
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Blue)
-                        ) {
-                            Text(
-                                text = stringResource(id = R.string.login),
-                                color = Color.Black
-                            )
-                        }
-                    }
+            item {
+                Button(
+                    modifier = Modifier
+                        .padding(top = 24.dp, start = 16.dp, end = 16.dp)
+                        .height(48.dp)
+                        .fillMaxWidth(),
+                    onClick = onLoginClick,
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Blue)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.login),
+                        color = Color.Black
+                    )
+                }
+            }
 
-                    item() {
-                        Box(
-                            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            ClickableText(
-                                text = AnnotatedString(stringResource(id = R.string.forgot_password)),
-                                onClick = onForgotPasswordClick
-                            )
-                        }
-                    }
-                })
-        }
-
-    }
+            item() {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ClickableText(
+                        text = AnnotatedString(stringResource(id = R.string.forgot_password)),
+                        onClick = onForgotPasswordClick
+                    )
+                }
+            }
+        })
 }
 
 @Preview

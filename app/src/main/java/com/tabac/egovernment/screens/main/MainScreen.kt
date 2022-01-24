@@ -17,12 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
 import com.tabac.egovernment.screens.documents.DocumentsScreen
 import com.tabac.egovernment.screens.home.HomeScreen
+import com.tabac.egovernment.screens.home.HomeViewModel
 import com.tabac.egovernment.screens.settings.SettingsScreen
 import com.tabac.egovernment.screens.votes.VotesScreen
 
@@ -46,7 +48,8 @@ fun MainScreen(
                 startDestination = NavigationRoutes.Home.route
             ) {
                     composable(NavigationRoutes.Home.route) {
-                        HomeScreen()
+                        val homeViewModel = hiltViewModel<HomeViewModel>()
+                        HomeScreen(homeViewModel = homeViewModel, onSearchInputChanged = {})
                     }
                     composable(NavigationRoutes.Documents.route) {
                         DocumentsScreen()
@@ -103,7 +106,6 @@ fun MainScreen(
                                 popUpTo(childNavController.graph.findStartDestination().id) {
                                     saveState = true
                                 }
-
                                 launchSingleTop = true
                                 restoreState = true
                             }

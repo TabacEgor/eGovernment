@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -22,13 +21,17 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.tabac.egovernment.R
 import com.tabac.egovernment.screens.documents.DocumentsScreen
 import com.tabac.egovernment.screens.home.HomeScreen
 import com.tabac.egovernment.screens.home.HomeViewModel
 import com.tabac.egovernment.screens.settings.SettingsScreen
 import com.tabac.egovernment.screens.votes.VotesScreen
+import com.tabac.egovernment.ui.theme.Typography
 
 @Composable
 fun MainScreen(
@@ -82,7 +85,6 @@ fun MainScreen(
                             ?.any { it.route == screen.route } == true
 
                         BottomNavigationItem(
-                            modifier = Modifier.background(Color.White),
                             icon = {
                                 Icon(
                                     imageVector = when (screen) {
@@ -90,7 +92,7 @@ fun MainScreen(
                                         NavigationRoutes.Documents -> Icons.Filled.Face
                                         NavigationRoutes.Votes -> Icons.Filled.Favorite
                                         NavigationRoutes.Settings -> Icons.Filled.Settings
-                                        else -> Icons.Filled.Favorite
+                                        else -> TODO()
                                     },
                                     contentDescription = null,
                                 )
@@ -98,7 +100,8 @@ fun MainScreen(
                             label = {
                                 Text(
                                     stringResource(id = screen.resourceId),
-                                    color = Color.Black
+                                    color = Color.Black,
+                                    style = Typography.overline
                                 )
                             },
                             selected = isSelected,

@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.tabac.egovernment.R
 import com.tabac.egovernment.screens.main.NavigationRoutes
+import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -37,12 +38,13 @@ fun SplashScreen(navController: NavController) {
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
-                fontSize = 56.sp
+                fontSize = 42.sp
             )
         }
     }
     
     LaunchedEffect(key1 = Unit, block = {
+        delay(3000L)
         if (isLoggedIn.value) {
             navController.navigate(route = NavigationRoutes.Main.route)
         } else {

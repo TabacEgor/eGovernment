@@ -15,8 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tabac.egovernment.R
 import com.tabac.egovernment.screens.login.models.LoginViewState
-import com.tabac.egovernment.ui.theme.Blue
-import com.tabac.egovernment.ui.theme.LightBlue
+
 
 @Composable
 fun LoginViewInitial(
@@ -29,7 +28,7 @@ fun LoginViewInitial(
 ) {
     LazyColumn(
         modifier = Modifier
-            .background(LightBlue)
+//            .background(LightBlue)
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         content = {
@@ -86,7 +85,7 @@ fun LoginViewInitial(
                         .height(48.dp)
                         .fillMaxWidth(),
                     onClick = onLoginClick,
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Blue)
+                    colors = ButtonDefaults.buttonColors()
                 ) {
                     Text(
                         text = stringResource(id = R.string.login),

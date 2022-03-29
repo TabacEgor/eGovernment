@@ -53,7 +53,6 @@ fun VotesList(
 fun VoteItem(vote: VoteModel) {
     var expanded by remember { mutableStateOf(false) }
     Card(
-        backgroundColor = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         Row(
@@ -72,13 +71,9 @@ fun VoteItem(vote: VoteModel) {
                     .padding(12.dp)
             ) {
                 Text(
-                    text = vote.name,
-                    style = MaterialTheme.typography.h6)
+                    text = vote.name)
                 Text(
-                    text = vote.startDate,
-                    style = MaterialTheme.typography.h4.copy(
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    text = vote.startDate
                 )
                 if (expanded) {
                     Text(

@@ -22,6 +22,7 @@ class LoginViewModel @Inject constructor() : BaseViewModel(), EventHandler<Login
     override fun obtainEvent(event: LoginEvent) {
         when (val currentViewState = _loginViewState.value) {
             is LoginViewState.ViewStateInitial -> reduce(event, currentViewState)
+            else -> {}
         }
     }
 

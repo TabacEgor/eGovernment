@@ -7,8 +7,11 @@ import com.tabac.egovernment.base.EventHandler
 import com.tabac.egovernment.screens.home.model.HomeEvent
 import com.tabac.egovernment.screens.home.model.HomeViewState
 import com.tabac.egovernment.util.logd
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel : BaseViewModel(), EventHandler<HomeEvent> {
+@HiltViewModel
+class HomeViewModel @Inject constructor() : BaseViewModel(), EventHandler<HomeEvent> {
 
     private val _homeViewState: MutableLiveData<HomeViewState> = MutableLiveData(HomeViewState.ViewStateInitial())
     val homeViewState: LiveData<HomeViewState> = _homeViewState
@@ -16,6 +19,7 @@ class HomeViewModel : BaseViewModel(), EventHandler<HomeEvent> {
     override fun obtainEvent(event: HomeEvent) {
         when (val currentViewState = _homeViewState.value) {
             is HomeViewState.ViewStateInitial -> reduce(event = event, currentViewState)
+            else -> {}
         }
     }
 
